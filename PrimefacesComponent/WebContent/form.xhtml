@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="3">
+			ID:
+			<p:inputText id="kayitID" value="#{kayitBean.id}" required="true"
+				requiredMessage="Id alanı boş bırakılamaz." />
+			<p:message for="kayitID" />
+			Şifre:
+			<p:password id="sifre" value="#{kayitBean.sifre}" required="true"
+				requiredMessage="Şifre alanı boş bırakılamaz." feedback="true"
+				promptLabel="Lütfen şifrenizi giriniz" weakLabel="Kolay"
+				goodLabel="Normal" strongLabel="Güvenli" />
+			<p:message for="sifre" />
+			Email:
+			<p:inputText id="email" value="#{kayitBean.email}" required="true"
+				requiredMessage="Email alanı boş bırakalamaz"
+				validatorMessage="Doğru bir email adresi girmelisiniz">
+				<f:validateRegex
+					pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+			</p:inputText>
+			<p:message for="email" />
+			Doğrulama Kodu:
+			<p:captcha id="dogrulama" required="true"
+				requiredMessage="Doğrulama kodunu girmelisiniz."
+				validatorMessage="Girdi ile kod eşleşmedi." />
+			<p:message for="dogrulama" />
+		</h:panelGrid>
+		<p:commandButton value="Kaydet" action="#{kayitBean.kaydet}"
+			ajax="false"></p:commandButton>
+	</h:form>
+</h:body>
+</html>

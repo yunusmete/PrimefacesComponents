@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<h:body>
+	<h:form>
+		<p:fieldset legend="Primefaces Bileşen Testi">
+			<h:panelGrid columns="2">
+			Renk: <p:colorPicker value="#{testBean.oRenk}" />
+				<br />
+			Arkaplan Rengi: <p:colorPicker value="#{testBean.aRenk}" />
+				<br />
+			Renk:
+			<p:inplace>
+					<p:inputText value="#{testBean.oRenk}" />
+				</p:inplace>
+			Arkaplan Rengi:
+			<p:inplace>
+					<p:inputText value="#{testBean.aRenk}" />
+				</p:inplace>
+				<p:inplace label="Renk: ##{testBean.oRenk}">
+					<p:colorPicker value="#{testBean.oRenk}" />
+					<p:commandButton value="Dene" action="#{testBean.yonlendir}"
+						ajax="false" />
+				</p:inplace>
+				<br />
+				<p:inplace label="Arkaplan Rengi: ##{testBean.aRenk}">
+					<p:colorPicker value="#{testBean.aRenk}" />
+					<p:commandButton value="Dene" action="#{testBean.yonlendir}"
+						ajax="false" />
+					<br />
+				</p:inplace>
+			</h:panelGrid>
+			<p:commandButton action="#{testBean.yonlendir}" value="Ayarla"
+				ajax="false"></p:commandButton>
+				
+				<h:panelGrid columns="2">
+					Resim:
+					<p:inplace editor="true" label="İçeriği Göster">
+						<p:graphicImage url="#{resimBean.yol}"></p:graphicImage>
+					</p:inplace>
+				</h:panelGrid>
+		</p:fieldset>
+	</h:form>
+</h:body>
+</html>
