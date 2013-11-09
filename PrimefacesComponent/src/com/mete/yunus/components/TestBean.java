@@ -14,7 +14,7 @@ public class TestBean implements Serializable{
 	private String aRenk = "3f4c21df";
 	
 	public String getStyle(){
-		String stil = String.format("color: #%s; background-color: #%s", oRenk, aRenk);
+		String stil = String.format("renk: #%s; arkaplan renk: #%s", oRenk, aRenk);
 		return stil;
 	}
 	
